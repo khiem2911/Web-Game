@@ -117,6 +117,9 @@ a
     flex-direction: row;
     justify-content: space-between;
 }
+#pronew-main a{
+    color: #000;
+}
 .pronew{
     display: flex;
     flex-direction: column;

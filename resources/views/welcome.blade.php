@@ -3,7 +3,7 @@
 <div class="main-product">
     <div style="margin-top:100px;" class="main-productnew">
         <p>NEW GAMES</p>
-        <a href="">Xem tất cả ></a>
+        <a href="{{route('newgame')}}">Xem tất cả ></a>
     </div>
     <div id="pronew-main">
         <div class="pronew">
@@ -29,7 +29,7 @@
     </div>
     <div style="margin-top:100px;" class="main-productnew">
         <p>TOP GAMES</p>
-        <a href="">Xem tất cả ></a>
+        <a href="{{route('topgames')}}">Xem tất cả ></a>
     </div>
     <div id="pronew-main">
         <div class="pronew">
@@ -55,7 +55,7 @@
     </div>
     <div style="margin-top:100px;" class="main-productnew">
         <p>SALE GAMES</p>
-        <a href="">Xem tất cả ></a>
+        <a href="{{route('salegames')}}">Xem tất cả ></a>
     </div>
     <div id="pronew-main">
     <div class="pronew">

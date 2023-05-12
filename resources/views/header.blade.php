@@ -32,9 +32,9 @@
             </div>
             </div>
             <a href=""><i class="fas fa-gamepad"></i> Games</a>
-            <a href=""><i class="fab fa-drupal"></i> Sản phẩm mới</a>
-            <a href=""><i class="fas fa-fire"></i> Sản phẩm mua nhiều</a>
-            <a href=""><i class="fas fa-percent"></i> Sản phẩm khuyến mãi</a>
+            <a href="{{route('newgame')}}"><i class="fab fa-drupal"></i> Sản phẩm mới</a>
+            <a href="{{route('topgames')}}"><i class="fas fa-fire"></i> Sản phẩm mua nhiều</a>
+            <a href="{{route('salegames')}}"><i class="fas fa-percent"></i> Sản phẩm khuyến mãi</a>
         </div>  
         </div>   
         <div class="container">

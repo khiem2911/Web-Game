@@ -21,5 +21,18 @@ Route::get('register', function () {
 Route::get('cart', function () {
     return view('cart');
 })->name('cart');
+Route::get('newgame', function () {
+    return view('newgame');
+})->name('newgame');
+Route::get('topgames', function () {
+    return view('topgames');
+})->name('topgames');
+Route::get('salegames', function () {
+    return view('salegames');
+})->name('salegames');
+Route::get('admin', function () {
+    return view('admin');
+})->name('admin');
+
 
 
