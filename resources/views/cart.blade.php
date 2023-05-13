@@ -1,6 +1,6 @@
 @extends('headerpage')
 @section('content')
-<h1 style="margin-left:500px;">GIỎ HÀNG</h1>
+<h1 style="margin-left:100px;">GIỎ HÀNG</h1>
     <div class="cart">
         <div class="test">
         <div class="info-product">
