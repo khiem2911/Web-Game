@@ -25,13 +25,13 @@
             <div class="right-menu">
             <a id="menu-btn" href=""><i class="fas fa-bars" style="padding-right:5px;"></i>Danh Mục</a>
             <div class="dropdown-menu">
-                <a href="">Kinh dị</a>
-                <a href="">Hành động</a>
-                <a href="">Thế giới mở</a>
-                <a href="">Sinh tồn</a>
+                <a href="{{URL::to('/catePro/Kinh dị')}}">Kinh dị</a>
+                <a href="{{URL::to('/catePro/Hành động')}}">Hành động</a>
+                <a href="{{URL::to('/catePro/Thế giới mở')}}">Thế giới mở</a>
+                <a href="{{URL::to('/catePro/Sinh tồn')}}">Sinh tồn</a>
             </div>
             </div>
-            <a href=""><i class="fas fa-gamepad"></i> Games</a>
+            <a href="{{route('allgames')}}"><i class="fas fa-gamepad"></i> Games</a>
             <a href="{{route('newgame')}}"><i class="fab fa-drupal"></i> Sản phẩm mới</a>
             <a href="{{route('topgames')}}"><i class="fas fa-fire"></i> Sản phẩm mua nhiều</a>
             <a href="{{route('salegames')}}"><i class="fas fa-percent"></i> Sản phẩm khuyến mãi</a>

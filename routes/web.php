@@ -8,9 +8,14 @@ Route::get('registration', [CustomAuthController::class, 'registration'])->name(
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 Route::get('users', [CustomAuthController::class, 'users'])->name('User'); 
-Route::get('image', [CustomAuthController::class, 'image'])->name('Image'); 
+Route::get('allgames', [CustomAuthController::class, 'getAll'])->name('allgames'); 
+Route::get('topgames', [CustomAuthController::class, 'getTopGames'])->name('topgames'); 
+Route::get('newgame', [CustomAuthController::class, 'getNewGames'])->name('newgame'); 
+Route::get('salegames', [CustomAuthController::class, 'getSaleGames'])->name('salegames'); 
+Route::get('/detail/{id}', [CustomAuthController::class, 'getDetail']);
+Route::get('/catePro/{id}', [CustomAuthController::class, 'getCatePro']);
 Route::get('/', function () {
-    return view('welcome');
+    return view('Pages.welcome');
 })->name('welcome');
 Route::get('login', function () {
     return view('login');
@@ -21,15 +26,7 @@ Route::get('register', function () {
 Route::get('cart', function () {
     return view('cart');
 })->name('cart');
-Route::get('newgame', function () {
-    return view('newgame');
-})->name('newgame');
-Route::get('topgames', function () {
-    return view('topgames');
-})->name('topgames');
-Route::get('salegames', function () {
-    return view('salegames');
-})->name('salegames');
+
 Route::get('admin', function () {
     return view('admin');
 })->name('admin');

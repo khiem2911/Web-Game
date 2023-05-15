@@ -37,7 +37,42 @@ class CustomAuthController extends Controller
     {
         return view('auth.registration');
     }
-      
+     public function getAll()
+     {
+        $data = DB::table('products')->simplePaginate(15);
+        return view('Pages.allgames', ['data' => $data]);
+     } 
+     public function getTopGames()
+     {
+        $data = DB::table('topsell')->join('products','topsell.idTopSell','=','products.proId')->simplePaginate(15);
+        return view('Pages.topgames', ['data' => $data]);
+     }
+     public function getNewGames()
+     {
+        $data = DB::table('products')->orderBy('proId', 'desc')->limit(20)->simplePaginate(15);
+        return view('Pages.newgame', ['data' => $data]);
+
+    }
+    public function getSaleGames()
+    {
+       $data = DB::table('products')->where('products.salePrice','>',0)->simplePaginate(15);
+       return view('Pages.salegames', ['data' => $data]);
+   }
+   public function getDetail($id)
+   {
+    $data = DB::table('products')->join('categoryproducts','categoryproducts.cateid','=','products.cateid')->where('products.nameProduct','=',$id)->select('products.*','categoryproducts.nameCate')->get();
+    $cate;
+    foreach ($data as $key=>$item);
+            $cate=$item->nameCate;
+    $relate= DB::table('products')->join('categoryproducts','categoryproducts.cateid','=','products.cateid')->where('categoryproducts.nameCate','=',$cate)->limit(4)->select('products.*')->inRandomOrder()->get();
+    return view('Pages.detail', ['data' => $data,'relate'=>$relate]);
+
+}
+  public function getCatePro($id)
+  {
+    $data = DB::table('products')->join('categoryproducts','categoryproducts.cateid','=','products.cateid')->where('categoryproducts.nameCate','=',$id)->simplePaginate(15);
+    return view('Pages.catepro',['data'=>$data]);
+  }
     public function customRegistration(Request $request)
     {  
         $request->validate([

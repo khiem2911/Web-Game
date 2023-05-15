@@ -29,8 +29,8 @@
 <p  class="text">Mô tả: {{$item->description}}</p>
 </div>
 <div class="btnCart">
-<button id="btn-checkout"><p style="color:white"><i class="fas fa-credit-card" style="color:white"></i>Mua ngay</p></button>
-<button id="btn-addnow"><p style="color:#5c9bf5"><i class="fas fa-cart-plus" style="color:#5c9bf5"></i>Thêm vào giỏ</p></button>
+<button id="btn-checkout"><p style="color:white;padding-left:10px;"><i class="fas fa-credit-card" style="color:white"></i>Mua ngay</p></button>
+<button id="btn-addnow"><p style="color:#5c9bf5;padding-left:10px;"><i class="fas fa-cart-plus" style="color:#5c9bf5"></i>Thêm vào giỏ</p></button>
 </div>
 </div>
 @endforeach

@@ -8,7 +8,7 @@
     @foreach ($data as $key=>$item)
 <div class="pronew">
 <a href="{{URL::to('/detail/'.$item->nameProduct)}}">
-        <img style="width:350px;height:200px" src="{{URL::to('/assets/img/' .$item->imgPro) }}" alt="">
+<img style="width:350px;height:200px" src="{{URL::to('/assets/img/' .$item->imgPro) }}" alt="">
         <p>{{$item->nameProduct}}</p>
         <?php echo number_format($item->price).'Đ' ?>
         </a>
