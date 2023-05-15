@@ -51,10 +51,6 @@
     font-size: 20px;
     font-weight: bold;
 }
-.pronew p{
-    font-size: 20px;
-    font-weight: bold;
-}
 .cart
 {
     border: solid 2px #e6e8eb;
@@ -62,8 +58,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-left: 100px;
-    width: 1000px;
+    margin-left: 500px;
     margin-right: 500px;
 }
 #logohome:hover{
@@ -174,7 +169,7 @@ a:hover{
     overflow: hidden;
 }
 .main-product{
-    margin-left: 50px;
+    margin-left: 150px;
     margin-right: 150px;
 }
 .main-product a{
@@ -190,9 +185,6 @@ a:hover{
     width: 104%;
     display: flex;
     animation: slide 16s infinite;
-}
-.pronew a{
-    text-decoration: none;
 }
 img{
     width: 100%;

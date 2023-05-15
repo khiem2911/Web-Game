@@ -21,6 +21,11 @@
         <p>Far cry 6</p>
         <p>390.000đ</p>
         </div>
+        <div  class="pronew">
+        <img style="width:350px;height:200px"  src="{{asset('assets/img/game5.jpeg') }}" alt="">
+        <p>Leauge of legends</p>
+        <p>100.000đ</p>
+        </div>
     </div>
     <div style="margin-top:100px;" class="main-productnew">
         <p>TOP GAMES</p>
@@ -42,7 +47,11 @@
         <p>Far cry 6</p>
         <p>390.000đ</p>
         </div>
-      
+        <div  class="pronew">
+        <img style="width:350px;height:200px"  src="{{asset('assets/img/game5.jpeg') }}" alt="">
+        <p>Leauge of legends</p>
+        <p>100.000đ</p>
+        </div>
     </div>
     <div style="margin-top:100px;" class="main-productnew">
         <p>SALE GAMES</p>
@@ -63,6 +72,11 @@
         <img style="width:350px;height:200px"  src="{{asset('assets/img/game4.jpg') }}" alt="">
         <p>Far cry 6</p>
         <p>390.000đ</p>
+        </div>
+        <div  class="pronew">
+        <img style="width:350px;height:200px"  src="{{asset('assets/img/game5.jpeg') }}" alt="">
+        <p>Leauge of legends</p>
+        <p>100.000đ</p>
         </div>
     </div>
 </div>

@@ -4,28 +4,25 @@
        <h1>SALE GAMES</h1>
     </div>
 <div id="pronew-main">
-<div class="pronew">
-          <a href="">
+        <div class="pronew">
         <img style="width:350px;height:200px" src="{{asset('assets/img/game1.jpg') }}" alt="">
         <p>Atomeic heart</p>
-        <p>190.000</p>
-        </a>
-       </a>
+       <a href="">190.000đ</a>
         </div>
         <div  class="pronew">
-        <a href="">
         <img style="width:350px;height:200px" src="{{asset('assets/img/game3.jpg') }}" alt="">
         <p>Beyond two sould</p>
-        <p>200.000đ</p>
-        </a>
+        <a href="">200.000đ</a>
         </div>
         <div  class="pronew">
-          <a href="">
         <img style="width:350px;height:200px"  src="{{asset('assets/img/game4.jpg') }}" alt="">
         <p>Far cry 6</p>
-       <p>390.000đ</p>
-       </a>
+       <a href="">390.000đ</a>
         </div>
-       
+        <div  class="pronew">
+        <img style="width:350px;height:200px"  src="{{asset('assets/img/game5.jpeg') }}" alt="">
+        <p>Leauge of legends</p>
+      <a href="">100.000đ</a>
+        </div>
     </div>
 @endsection
