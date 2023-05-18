@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('content'); ?>
 <div class="detail">
 <?php if(!empty($data)): ?>
@@ -29,8 +28,8 @@
 <p  class="text">Mô tả: <?php echo e($item->description); ?></p>
 </div>
 <div class="btnCart">
-<button id="btn-checkout"><p style="color:white"><i class="fas fa-credit-card" style="color:white"></i>Mua ngay</p></button>
-<button id="btn-addnow"><p style="color:#5c9bf5"><i class="fas fa-cart-plus" style="color:#5c9bf5"></i>Thêm vào giỏ</p></button>
+<button id="btn-checkout"><p style="color:white;padding-left:10px;"><i class="fas fa-credit-card" style="color:white"></i>Mua ngay</p></button>
+<button id="btn-addnow"><p style="color:#5c9bf5;padding-left:10px;"><i class="fas fa-cart-plus" style="color:#5c9bf5"></i>Thêm vào giỏ</p></button>
 </div>
 </div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

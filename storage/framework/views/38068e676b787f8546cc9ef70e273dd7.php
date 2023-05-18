@@ -7,7 +7,7 @@
     <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 <div class="pronew">
 <a href="<?php echo e(URL::to('/detail/'.$item->nameProduct)); ?>">
-        <img style="width:350px;height:200px" src="<?php echo e(URL::to('/assets/img/' .$item->imgPro)); ?>" alt="">
+<img style="width:350px;height:200px" src="<?php echo e(URL::to('/assets/img/' .$item->imgPro)); ?>" alt="">
         <p><?php echo e($item->nameProduct); ?></p>
         <?php echo number_format($item->price).'Đ' ?>
         </a>

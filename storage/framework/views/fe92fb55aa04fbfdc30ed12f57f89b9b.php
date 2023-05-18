@@ -15,9 +15,8 @@
             <input type="search" placeholder="Tìm kiếm sản phẩm" name="search" id="">
             <a id="btn-search" href=""><i class="fas fa-search"></i></a>
             </div>
-            <div style="display:flex;justify-content:center;align-items: center;">
-            <i class="far fa-user" ></i>
-            <a  style="padding-left:10px" href="<?php echo e(route('login')); ?>">Đăng nhập</a>
+            <div style="display:flex">
+            <a href="<?php echo e(route('login')); ?>">Đăng nhập</a>
             <a href="<?php echo e(route('register')); ?>">/Đăng ký</a>
             </div>
             <a id="cart" href="<?php echo e(route('cart')); ?>"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
@@ -26,13 +25,13 @@
             <div class="right-menu">
             <a id="menu-btn" href=""><i class="fas fa-bars" style="padding-right:5px;"></i>Danh Mục</a>
             <div class="dropdown-menu">
-                <a href="<?php echo e(URL::to('/catepro/Kinh dị')); ?>">Kinh dị</a>
-                <a href="<?php echo e(URL::to('/catepro/Hành động')); ?>">Hành động</a>
-                <a href="<?php echo e(URL::to('/catepro/Thế giới mở')); ?>">Thế giới mở</a>
-                <a href="<?php echo e(URL::to('/catepro/Sinh tồn')); ?>">Sinh tồn</a>
+            <a href="<?php echo e(URL::to('/catePro/Kinh dị')); ?>">Kinh dị</a>
+                <a href="<?php echo e(URL::to('/catePro/Hành động')); ?>">Hành động</a>
+                <a href="<?php echo e(URL::to('/catePro/Thế giới mở')); ?>">Thế giới mở</a>
+                <a href="<?php echo e(URL::to('/catePro/Sinh tồn')); ?>">Sinh tồn</a>
             </div>
             </div>
-            <a href="<?php echo e(route('allgame')); ?>"><i class="fas fa-gamepad"></i> Games</a>
+            <a href="<?php echo e(route('allgames')); ?>"><i class="fas fa-gamepad"></i> Games</a>
             <a href="<?php echo e(route('newgame')); ?>">Sản phẩm mới</a>
             <a href="<?php echo e(route('topgames')); ?>"><i class="fas fa-fire"></i> Sản phẩm mua nhiều</a>
             <a href="<?php echo e(route('salegames')); ?>"><i class="fas fa-percent"></i> Sản phẩm khuyến mãi</a>

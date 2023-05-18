@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('content'); ?>
 <div style="margin-top:50px;" class="main-productnew">
        <h1>GAMES</h1>
