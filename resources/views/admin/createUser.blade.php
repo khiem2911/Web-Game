@@ -16,15 +16,12 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-<<<<<<< HEAD
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Upvex</a></li>
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
                                 <li class="breadcrumb-item active">Form Validation</li>
-=======
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">User new</a></li>
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
                                 <li class="breadcrumb-item active">Form create user</li>
->>>>>>> trung
                             </ol>
                         </div>
                         <h4 class="page-title">Form Create User</h4>
