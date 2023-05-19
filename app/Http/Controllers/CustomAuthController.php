@@ -286,7 +286,7 @@ class CustomAuthController extends Controller
     //Chức năng thêm sản phẩm
     public function customProduct(Request $request)
     {
-        echo 'heloo';
+       
         $request->validate([
             'nameProduct' => 'required',
             'cateid' => 'required',

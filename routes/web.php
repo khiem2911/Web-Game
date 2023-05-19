@@ -14,7 +14,6 @@ use App\Http\Controllers\CustomAuthController;
 |
 */
 
-<<<<<<< HEAD
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
@@ -51,7 +50,6 @@ Route::get('/pay', [CustomAuthController::class, 'PayCart']);
 Route::get('/ViewUser', [CustomAuthController::class, 'ViewUser']);
 Route::post('updateUser', [CustomAuthController::class, 'updateUser'])->name('updateUser');
 Route::get('viewHistory', [CustomAuthController::class, 'viewHistory']);
-=======
 Route::get('/', [CustomAuthController::class, 'welcome']);
 Route::get('admin', [CustomAuthController::class, 'userNew'])->name('admin');
 Route::get('create-User', [CustomAuthController::class, 'createUser'])->name('create.user');
@@ -72,6 +70,5 @@ Route::get('edit-Category/{cateid}', [CustomAuthController::class, 'editCategory
 Route::put('update-Category/{cateid}', [CustomAuthController::class, 'updateCategory'])->name('custom.updateCategory');
 Route::delete('destroyCategory/{cateid}', [CustomAuthController::class, 'destroyCategory'])->name('user.destroyCategory');
 
->>>>>>> hieu
 
 
