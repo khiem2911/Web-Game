@@ -13,7 +13,6 @@ use App\Http\Controllers\CustomAuthController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-<<<<<<< HEAD
 
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
@@ -50,7 +49,6 @@ Route::get('/ViewUser', [CustomAuthController::class, 'ViewUser']);
 Route::post('updateUser', [CustomAuthController::class, 'updateUser'])->name('updateUser');
 Route::get('viewHistory', [CustomAuthController::class, 'viewHistory']);
 Route::get('admin', [CustomAuthController::class, 'userNew'])->name('admin');
-Route::get('create-User', [CustomAuthController::class, 'createUser'])->name('create.user');
 Route::post('custom-User', [CustomAuthController::class, 'customUser'])->name('custom.user');
 Route::get('edit-User/{uid}', [CustomAuthController::class, 'editUser'])->name('edit.user');
 Route::put('update-User/{uid}', [CustomAuthController::class, 'update'])->name('custom.update');
@@ -67,9 +65,6 @@ Route::post('custom-Category', [CustomAuthController::class, 'customCategory'])-
 Route::get('edit-Category/{cateid}', [CustomAuthController::class, 'editCategory'])->name('edit.category');
 Route::put('update-Category/{cateid}', [CustomAuthController::class, 'updateCategory'])->name('custom.updateCategory');
 Route::delete('destroyCategory/{cateid}', [CustomAuthController::class, 'destroyCategory'])->name('user.destroyCategory');
-=======
-
-Route::get('/', [CustomAuthController::class, 'welcome']);
 Route::get('user-New', [CustomAuthController::class, 'userNew'])->name('admin');
 Route::get('create-User', [CustomAuthController::class, 'createUser'])->name('create.user');
 Route::post('custom-User', [CustomAuthController::class, 'customUser'])->name('custom.user');
@@ -95,7 +90,6 @@ Route::delete('destroyCategory/{cateid}', [CustomAuthController::class, 'destroy
 
 
 
->>>>>>> trung
 
 
 

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
 use Carbon\Exceptions\EndLessPeriodException;
 use Illuminate\Http\Request;
 use Hash;
@@ -18,64 +17,50 @@ use Illuminate\Support\Collection;
 use Ramsey\Uuid\Type\Integer;
 
 
-=======
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Ramsey\Uuid\Type\Integer;
 
->>>>>>> trung
+
 class CustomAuthController extends Controller
 {
 
     public function userNew()
     {
-<<<<<<< HEAD
-        return view('auth.login');
-    }
-
-    public function customLogin(Request $request)
-    {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
-                ->withSuccess('Signed in');
-        }
-
-        return redirect("login")->withSuccess('Login details are not valid');
-
-        $users = DB::table('users')->orderByDesc('uid')->paginate(2);
-        //$users = DB::table('users');
-        // foreach ($users as $i) {
-        //     echo 'id: '.$i."<br>";
-        // }
-        //echo  $users; 
-
-        return view('admin.admin', ['users' => $users]);
-    }
-    public function createUser()
-    {
-=======
-        $users = DB::table('users')->orderByDesc('uid')->where("users.type",'=',0)->paginate(2);
+        $users = DB::table('users')->orderByDesc('uid')->where('users.type', '=', 0)->paginate(4);
         return view('admin.userNew', ['users' => $users]);
     }
+
     public function createUser()
     {
->>>>>>> trung
+
         return view('admin.createUser');
     }
 
+
     public function customUser(Request $request)
     {
-<<<<<<< HEAD
+        $request->validate([
+            'username' => 'required',
+            'fullname' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            'phone' => 'required',
+            'moneyaccount' => 'required',
+            'avatar' => 'required',
 
-        return view('auth.registration');
+
+        ]);
+        DB::table('users')->insert(
+            array(
+                'username' => $request->username,
+                'fullname' => $request->fullname,
+                'email' => $request->email,
+                'password' => $request->password,
+                'phone' => $request->phone,
+                'moneyaccount' => $request->moneyaccount,
+                'avatar' => $request->avatar,
+                'type' => 0
+            )
+        );
+        return redirect("user-New")->withSuccess('Success!');
     }
     public function getAll()
     {
@@ -106,8 +91,8 @@ class CustomAuthController extends Controller
         $data = DB::table('topsell')->join('products', 'topsell.idTopSell', '=', 'products.proId')->simplePaginate(15);
         return view('Pages.topgames', ['data' => $data]);
     }
-     public function getNewGames()
-     {
+    public function getNewGames()
+    {
         $data = DB::table('products')->orderBy('proId', 'desc')->limit(20)->simplePaginate(15);
         return view('Pages.newgame', ['data' => $data]);
 
@@ -152,13 +137,13 @@ class CustomAuthController extends Controller
     {
         $request->session()->put('uid', '1');
         $sum = 0;
-            $data['bill'] = DB::table('bill')
-                ->where('bill.uid', '=', $request->session()->get('uid'))->get();
-            $data['chiTiet'] = DB::table('detailbill')
+        $data['bill'] = DB::table('bill')
+            ->where('bill.uid', '=', $request->session()->get('uid'))->get();
+        $data['chiTiet'] = DB::table('detailbill')
             ->join('bill', 'detailbill.idbill', '=', 'bill.idbill')
             ->join('products', 'detailbill.proid', '=', 'products.proid')
-                ->where('bill.uid', '=', $request->session()->get('uid'))->get();
-                return view('Pages.history', ['data' => $data]);
+            ->where('bill.uid', '=', $request->session()->get('uid'))->get();
+        return view('Pages.history', ['data' => $data]);
     }
 
     public function getCatePro($id)
@@ -169,57 +154,21 @@ class CustomAuthController extends Controller
     public function store(Request $request)
     {
         $name = $request->input('search');
-        $filterData = DB::table('products')->where('products.nameProduct','LIKE','%'.$name.'%')->simplePaginate(15);
-        $count =count($filterData);
-        if($count==0)
-        {
+        $filterData = DB::table('products')->where('products.nameProduct', 'LIKE', '%' . $name . '%')->simplePaginate(15);
+        $count = count($filterData);
+        if ($count == 0) {
             echo "<script type='text/javascript'>alert('Không tìm thấy sản phẩm');</script>";
             return view('Pages.welcome');
-        }else
-        {
+        } else {
             return view('Pages.searchProduct', ['data' => $filterData]);
         }
     }
-    
-    public function customRegistration(Request $request)
-    {
-
-=======
->>>>>>> trung
-        $request->validate([
-            'username' => 'required',
-            'fullname' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-<<<<<<< HEAD
-            'confirmpass' => 'required|same:password',
-            'image' => 'required'
-        ]);
-        $data = $request->all();
-        $check = $this->create($data);
-        return redirect("dashboard")->withSuccess('You have signed-in');
-    }
-
-
-    public function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'image' => $data['image']
-        ]);
-    }
 
 
 
-    public function signOut()
-    {
-        Session::flush();
-        Auth::logout();
 
-        return Redirect('login');
-    }
+
+
     public function users()
     {
         $user = DB::table('users')->simplePaginate(2);
@@ -228,43 +177,12 @@ class CustomAuthController extends Controller
     public function image()
     {
         $image = DB::table('users')->select('image')->get();
-        return view('auth.image', ["image" => $image,  'phone' => 'required',
-        'moneyaccount' => 'required',
-        'avatar' => 'required',
-]);
-        DB::table('users')->insert(
-            array(
-                'username'     =>   $request->username,
-                'fullname'   =>  $request->fullname,
-                'email' => $request->email,
-                'password' => $request->password,
-                'phone' => $request->phone,
-                'moneyaccount' => $request->moneyaccount,
-                'avatar' => $request->avatar,
-
-            )
-        );
-        return redirect("admin")->withSuccess('Success!');
-=======
+        return view('auth.image', [
+            "image" => $image,
             'phone' => 'required',
             'moneyaccount' => 'required',
             'avatar' => 'required',
-
-
         ]);
-        DB::table('users')->insert(
-            array(
-                'username'     =>   $request->username,
-                'fullname'   =>  $request->fullname,
-                'email' => $request->email,
-                'password' => $request->password,
-                'phone' => $request->phone,
-                'moneyaccount' => $request->moneyaccount,
-                'avatar' => $request->avatar,
-                'type'=>0
-            )
-        );
-        return redirect("user-New")->withSuccess('Success!');
     }
 
     public function editUser($uid)
@@ -276,15 +194,17 @@ class CustomAuthController extends Controller
     public function update(Request $request, $uid)
     {
 
-        DB::table('users')->where('uid', $uid)->update(array(
-            'username'     =>   $request->username,
-            'fullname'   =>  $request->fullname,
-            'email' => $request->email,
-            'password' => $request->password,
-            'phone' => $request->phone,
-            'moneyaccount' => $request->moneyaccount,
-            'avatar' => $request->avatar,
-        ));
+        DB::table('users')->where('uid', $uid)->update(
+            array(
+                'username' => $request->username,
+                'fullname' => $request->fullname,
+                'email' => $request->email,
+                'password' => $request->password,
+                'phone' => $request->phone,
+                'moneyaccount' => $request->moneyaccount,
+                'avatar' => $request->avatar,
+            )
+        );
         return redirect("user-New")->withSuccess('Success!');
     }
     public function destroy($uid)
@@ -317,8 +237,8 @@ class CustomAuthController extends Controller
 
         $products = DB::table('products')
             ->join('topsell', 'products.proId', '=', 'topsell.proid')
-            ->where('topsell.monthstatisticalsell','=', $month)
-            ->where('topsell.yearstatisticalsell', '=',$year)
+            ->where('topsell.monthstatisticalsell', '=', $month)
+            ->where('topsell.yearstatisticalsell', '=', $year)
             ->get();
         return view('admin.productStatistics', compact('products'));
     }
@@ -354,14 +274,14 @@ class CustomAuthController extends Controller
         ]);
         DB::table('products')->insert(
             array(
-                'nameProduct'     =>   $request->nameProduct,
-                'cateid'   =>  $request->cateid,
+                'nameProduct' => $request->nameProduct,
+                'cateid' => $request->cateid,
                 'imgPro' => $request->imgPro,
                 'description' => $request->description,
                 'idadmin' => $request->idadmin,
                 'price' => $request->price,
                 'status' => $request->status,
-                'salePrice' => $request ->salePrice,
+                'salePrice' => $request->salePrice,
             )
         );
         return redirect("product")->withSuccess('Success!');
@@ -374,25 +294,27 @@ class CustomAuthController extends Controller
     }
     // Sửa sản phẩm
     public function updateProduct(Request $request, $proId)
-    {    
-        DB::table('products')->where('proId', $proId)->update(array(
-            'nameProduct'     =>   $request->nameProduct,
-            'cateid'   =>  $request->cateid,
-            'description' => $request->description,
-            'idadmin' => $request->idadmin,
-            'price' => $request->price,
-            'status' => $request->status,
-            'salePrice' => $request->salePrice,
-            'imgPro' => $request->imgPro,
-        ));
+    {
+        DB::table('products')->where('proId', $proId)->update(
+            array(
+                'nameProduct' => $request->nameProduct,
+                'cateid' => $request->cateid,
+                'description' => $request->description,
+                'idadmin' => $request->idadmin,
+                'price' => $request->price,
+                'status' => $request->status,
+                'salePrice' => $request->salePrice,
+                'imgPro' => $request->imgPro,
+            )
+        );
         return redirect("product")->withSuccess('Success!');
-    } 
+    }
     // Xóa sản phẩm
     public function destroyProduct($proId)
     {
         DB::table('products')
-        ->where('proId',$proId)
-        ->delete();
+            ->where('proId', $proId)
+            ->delete();
         return redirect("product");
     }
     //Hiển thị thể loại
@@ -419,7 +341,7 @@ class CustomAuthController extends Controller
         ]);
         DB::table('categoryproducts')->insert(
             array(
-                'nameCate' =>   $request->nameCate,
+                'nameCate' => $request->nameCate,
             )
         );
         return redirect("category")->withSuccess('Success!');
@@ -432,173 +354,25 @@ class CustomAuthController extends Controller
     }
     //Sửa thể loại
     public function updateCategory(Request $request, $cateid)
-    {    
-        DB::table('categoryproducts')->where('cateid', $cateid)->update(array(
-            'nameCate'     =>   $request->nameCate,
-        ));
-        return redirect("category")->withSuccess('Success!');
-    } 
-    //Xóa thể loại
-    public function destroyCategory($cateid)
     {
-        DB::table('categoryproducts')
-        ->where('cateid',$cateid)
-        ->delete();
-        return redirect("category");
->>>>>>> trung
-    }
-
-    public function editUser($uid)
-    {
-        $user = User::find($uid);
-        return view("admin.editUser", compact('user'));
-    }
-
-    public function update(Request $request, $uid)
-    {
-        
-        DB::table('users')->where('uid', $uid)->update(array(
-            'username'     =>   $request->username,
-            'fullname'   =>  $request->fullname,
-            'email' => $request->email,
-            'password' => $request->password,
-            'phone' => $request->phone,
-            'moneyaccount' => $request->moneyaccount,
-            'avatar' => $request->avatar,
-        ));
-        return redirect("admin")->withSuccess('Success!');
-    }
-    public function destroy($uid)
-    {
-        DB::table('users')
-        ->where('uid',$uid)
-        ->delete();
-        return redirect("admin");
-    }
-    //Hiển thị sản phẩm
-    public function productNew()
-    {
-        $users = DB::table('products')->orderByDesc('proId')->paginate(25);
-        //$users = DB::table('users');
-        // foreach ($users as $i) {
-        //     echo 'id: '.$i."<br>";
-        // }
-        //echo  $users; 
-        return view('admin.product', ['products' => $users]);
-    }
-    //Thêm sản phẩm
-    public function createProduct()
-    {
-        return view('admin.createProduct');
-    }
-    //Chức năng thêm sản phẩm
-    public function customProduct(Request $request)
-    {
-       
-        $request->validate([
-            'nameProduct' => 'required',
-            'cateid' => 'required',
-            'description' => 'required',
-            'idadmin' => 'required',
-            'price' => 'required',
-            'status' => 'required',
-            'salePrice' => 'required',
-            'imgPro' => 'required',
-        ]);
-        DB::table('products')->insert(
+        DB::table('categoryproducts')->where('cateid', $cateid)->update(
             array(
-                'nameProduct'     =>   $request->nameProduct,
-                'cateid'   =>  $request->cateid,
-                'imgPro' => $request->imgPro,
-                'description' => $request->description,
-                'idadmin' => $request->idadmin,
-                'price' => $request->price,
-                'status' => $request->status,
-                'salePrice' => $request ->salePrice,
-            )
-        );
-        return redirect("product")->withSuccess('Success!');
-    }
-    // Sửa sản phẩm
-    public function editProduct($proId)
-    {
-        $proId = Product::find($proId);
-        return view("admin.editProduct", compact('proId'));
-    }
-    // Sửa sản phẩm
-    public function updateProduct(Request $request, $proId)
-    {    
-        DB::table('products')->where('proId', $proId)->update(array(
-            'nameProduct'     =>   $request->nameProduct,
-            'cateid'   =>  $request->cateid,
-            'description' => $request->description,
-            'idadmin' => $request->idadmin,
-            'price' => $request->price,
-            'status' => $request->status,
-            'salePrice' => $request->salePrice,
-            'imgPro' => $request->imgPro,
-        ));
-        return redirect("product")->withSuccess('Success!');
-    } 
-    // Xóa sản phẩm
-    public function destroyProduct($proId)
-    {
-        DB::table('products')
-        ->where('proId',$proId)
-        ->delete();
-        return redirect("product");
-    }
-    //Hiển thị thể loại
-    public function categoryNew()
-    {
-        $category = DB::table('categoryproducts')->orderBy('cateid')->paginate(10);
-        //$users = DB::table('users');
-        // foreach ($users as $i) {
-        //     echo 'id: '.$i."<br>";
-        // }
-        //echo  $users; 
-        return view('admin.category', ['categoryproducts' => $category]);
-    }
-    //Thêm thể loại
-    public function createCategory()
-    {
-        return view('admin.createCategory');
-    }
-    //Thêm thể loại
-    public function customCategory(Request $request)
-    {
-        $request->validate([
-            'nameCate' => 'required',
-        ]);
-        DB::table('categoryproducts')->insert(
-            array(
-                'nameCate' =>   $request->nameCate,
+                'nameCate' => $request->nameCate,
             )
         );
         return redirect("category")->withSuccess('Success!');
     }
-    //Sửa thể loại
-    public function editCategory($cateid)
-    {
-        $cateid = Categoryproduct::find($cateid);
-        return view("admin.editCategory", compact('cateid'));
-    }
-    //Sửa thể loại
-    public function updateCategory(Request $request, $cateid)
-    {    
-        DB::table('categoryproducts')->where('cateid', $cateid)->update(array(
-            'nameCate'     =>   $request->nameCate,
-        ));
-        return redirect("category")->withSuccess('Success!');
-    } 
     //Xóa thể loại
     public function destroyCategory($cateid)
     {
         DB::table('categoryproducts')
-        ->where('cateid',$cateid)
-        ->delete();
+            ->where('cateid', $cateid)
+            ->delete();
         return redirect("category");
+
     }
+
+
     public function DeleteItemCart(Request $request, $idPro)
     {
         DB::table('cart')
@@ -623,7 +397,7 @@ class CustomAuthController extends Controller
         DB::table('users')->where('uid', '=', $request->session()->get('uid'))->update($update);
         $data = DB::table('users')
             ->where('uid', '=', $request->session()->get('uid'))->first();
-        return view('Pages.user', ['data' => $data,'thongBao'=>"Cập nhật thành công"]);
+        return view('Pages.user', ['data' => $data, 'thongBao' => "Cập nhật thành công"]);
     }
     public function PayCart(Request $request)
     {
@@ -639,7 +413,7 @@ class CustomAuthController extends Controller
         $money = $user->moneyaccount;
         if ($money > $sum) {
             $bill['uid'] = $request->session()->get('uid');
-            $dd=DB::table('bill')->insert($bill);
+            $dd = DB::table('bill')->insert($bill);
             $last_record = DB::table('bill')->latest('datesell')->first();
             foreach ($data as $key => $value) {
                 $detailbill['idbill'] = $last_record->idbill;
