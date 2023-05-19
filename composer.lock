@@ -2696,6 +2696,7 @@
         {
             "name": "psy/psysh",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v0.11.17",
             "source": {
                 "type": "git",
@@ -2718,6 +2719,18 @@
                 "url": "https://api.github.com/repos/bobthecow/psysh/zipball/151b145906804eea8e5d71fea23bfb470c904bfb",
                 "reference": "151b145906804eea8e5d71fea23bfb470c904bfb",
 >>>>>>> hieu
+=======
+            "version": "v0.11.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bobthecow/psysh.git",
+                "reference": "151b145906804eea8e5d71fea23bfb470c904bfb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/151b145906804eea8e5d71fea23bfb470c904bfb",
+                "reference": "151b145906804eea8e5d71fea23bfb470c904bfb",
+>>>>>>> trung
                 "shasum": ""
             },
             "require": {
@@ -2779,6 +2792,7 @@
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "source": "https://github.com/bobthecow/psysh/tree/v0.11.17"
             },
             "time": "2023-05-05T20:02:42+00:00"
@@ -2787,6 +2801,11 @@
             },
             "time": "2023-04-26T12:53:57+00:00"
 >>>>>>> hieu
+=======
+                "source": "https://github.com/bobthecow/psysh/tree/v0.11.16"
+            },
+            "time": "2023-04-26T12:53:57+00:00"
+>>>>>>> trung
         },
         {
             "name": "ralouphie/getallheaders",
@@ -7686,6 +7705,7 @@
         {
             "name": "spatie/laravel-ignition",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "2.1.2",
             "source": {
                 "type": "git",
@@ -7708,6 +7728,18 @@
                 "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/802c7e27754456e45134f1a9d29ab7df4b6cb9e4",
                 "reference": "802c7e27754456e45134f1a9d29ab7df4b6cb9e4",
 >>>>>>> hieu
+=======
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-ignition.git",
+                "reference": "802c7e27754456e45134f1a9d29ab7df4b6cb9e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/802c7e27754456e45134f1a9d29ab7df4b6cb9e4",
+                "reference": "802c7e27754456e45134f1a9d29ab7df4b6cb9e4",
+>>>>>>> trung
                 "shasum": ""
             },
             "require": {
@@ -7787,10 +7819,14 @@
                 }
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2023-05-09T07:19:31+00:00"
 =======
             "time": "2023-05-04T13:54:49+00:00"
 >>>>>>> hieu
+=======
+            "time": "2023-05-04T13:54:49+00:00"
+>>>>>>> trung
         },
         {
             "name": "symfony/yaml",

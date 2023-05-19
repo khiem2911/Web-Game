@@ -26,6 +26,10 @@ class User extends Authenticatable
         'phone',
         'moneyaccount',
         'avatar',
+<<<<<<< HEAD
+=======
+        'type'
+>>>>>>> trung
     ];
 
     /**
@@ -47,7 +51,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+<<<<<<< HEAD
 
     protected $primaryKey = 'uid';
     
+=======
+    /**
+     * Get the latest user based on ID
+     *
+     * @return User
+     */
+
+    protected $primaryKey = 'uid';
+
+>>>>>>> trung
 }
