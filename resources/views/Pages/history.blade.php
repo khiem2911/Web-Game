@@ -12,43 +12,21 @@
     <th>SẢN PHẨM</th>
     <th>TỔNG TIỀN</th>
   </tr>
-
+  @foreach ($data['bill'] as $key=>$item) 
      <tr>
-    <td>{{$data->fullname}}</td>
-    <td>{{$data->phone}}</td>
-    <td>{{$data->email}}</td>
-    <td>{{$data->datecreate}}</td>
-  </tr>
-
+     <?php $sum = 0; ?>
+    <td>{{$item->datesell}}</td>
+    <td>{{$item->idbill}}</td>
+    <td>@foreach ($data['chiTiet'] as $key=>$item1) 
+    @if($item1->idbill==$item->idbill)
+    <?php $sum += $item1->price; ?>
+      <p>{{$item1->nameProduct}}<p>
+        @endif
+    @endforeach
+    </td>
+    <td>{{$sum}}</td>
+  </tr>    @endforeach
   </table>
-  <a href="{{URL::to('/ViewUser')}}">Sinh tồn</a>
-  <h3 class="card-header text-center">TỔNG QUAN</h3>
-                        <div class="card-body">
-                            <form action="{{ route('updateUser') }}" method="POST">
-                                @csrf
-                                <div class="form-group mb-3">
-                                    <input value="{{$data->fullname}}" type="text" placeholder="Name" id="name" class="form-control" name="fullname"
-                                           required autofocus>
-                                    @if ($errors->has('fullname'))
-                                        <span class="text-danger">{{ $errors->first('name') }}</span>
-                                    @endif
-                                </div>
-                                <div class="form-group mb-3">
-                                    <input value="{{$data->email}}" type="text" placeholder="Email" id="email_address" class="form-control"
-                                           name="email" >
-                                </div>
-                                <div class="form-group mb-3">
-                                    <input value="{{$data->phone}}" type="text" placeholder="PhoneNumber" id="PhoneNumber" class="form-control"
-                                           name="phone" required>
-                                    @if ($errors->has('phone'))
-                                        <span class="text-danger">{{ $errors->first('phone') }}</span>
-                                    @endif
-                                </div>
-                                <div class="d-grid mx-auto">
-                                    <button type="submit" class="btn btn-dark btn-block">Lưu thay đổi</button>
-                                </div>
-                            </form>
-                        </div>
 <p></p>
 <span>
 

@@ -40,7 +40,6 @@ class CustomAuthController extends Controller
     {
         return view('auth.registration');
     }
-<<<<<<< HEAD
     public function getAll()
     {
         $data = DB::table('products')->simplePaginate(15);
@@ -70,27 +69,12 @@ class CustomAuthController extends Controller
         $data = DB::table('topsell')->join('products', 'topsell.idTopSell', '=', 'products.proId')->simplePaginate(15);
         return view('Pages.topgames', ['data' => $data]);
     }
-    public function getNewGames()
-    {
-=======
-     public function getAll()
-     {
-        $data = DB::table('products')->simplePaginate(15);
-        return view('Pages.allgames', ['data' => $data]);
-     } 
-     public function getTopGames()
-     {
-        $data = DB::table('topsell')->join('products','topsell.idTopSell','=','products.proId')->simplePaginate(15);
-        return view('Pages.topgames', ['data' => $data]);
-     }
      public function getNewGames()
      {
->>>>>>> khiem
         $data = DB::table('products')->orderBy('proId', 'desc')->limit(20)->simplePaginate(15);
         return view('Pages.newgame', ['data' => $data]);
 
     }
-<<<<<<< HEAD
     public function getSaleGames()
     {
         $data = DB::table('products')->where('products.salePrice', '>', 0)->simplePaginate(15);
@@ -131,11 +115,13 @@ class CustomAuthController extends Controller
     {
         $request->session()->put('uid', '1');
         $sum = 0;
-            $data = DB::table('detailbill')
+            $data['bill'] = DB::table('bill')
+                ->where('bill.uid', '=', $request->session()->get('uid'))->get();
+            $data['chiTiet'] = DB::table('detailbill')
             ->join('bill', 'detailbill.idbill', '=', 'bill.idbill')
             ->join('products', 'detailbill.proid', '=', 'products.proid')
                 ->where('bill.uid', '=', $request->session()->get('uid'))->get();
-                return view('Pages.history',[$data]);
+                return view('Pages.history', ['data' => $data]);
     }
 
     public function getCatePro($id)
@@ -143,7 +129,6 @@ class CustomAuthController extends Controller
         $data = DB::table('products')->join('categoryproducts', 'categoryproducts.cateid', '=', 'products.cateid')->where('categoryproducts.nameCate', '=', $id)->simplePaginate(15);
         return view('Pages.catepro', ['data' => $data]);
     }
-=======
     public function store(Request $request)
     {
         $name = $request->input('search');
@@ -158,27 +143,7 @@ class CustomAuthController extends Controller
             return view('Pages.searchProduct', ['data' => $filterData]);
         }
     }
-    public function getSaleGames()
-    {
-       $data = DB::table('products')->where('products.salePrice','>',0)->simplePaginate(15);
-       return view('Pages.salegames', ['data' => $data]);
-   }
-   public function getDetail($id)
-   {
-    $data = DB::table('products')->join('categoryproducts','categoryproducts.cateid','=','products.cateid')->where('products.nameProduct','=',$id)->select('products.*','categoryproducts.nameCate')->get();
-    $cate;
-    foreach ($data as $key=>$item);
-            $cate=$item->nameCate;
-    $relate= DB::table('products')->join('categoryproducts','categoryproducts.cateid','=','products.cateid')->where('categoryproducts.nameCate','=',$cate)->limit(4)->select('products.*')->inRandomOrder()->get();
-    return view('Pages.detail', ['data' => $data,'relate'=>$relate]);
-
-}
-  public function getCatePro($id)
-  {
-    $data = DB::table('products')->join('categoryproducts','categoryproducts.cateid','=','products.cateid')->where('categoryproducts.nameCate','=',$id)->simplePaginate(15);
-    return view('Pages.catepro',['data'=>$data]);
-  }
->>>>>>> khiem
+    
     public function customRegistration(Request $request)
     {
         $request->validate([
@@ -249,7 +214,6 @@ class CustomAuthController extends Controller
             ->where('uid', '=', $request->session()->get('uid'))->first();
         return view('Pages.user', ['data' => $data,'thongBao'=>"Cập nhật thành công"]);
     }
-
     public function PayCart(Request $request)
     {
         $sum = 0;
@@ -264,7 +228,7 @@ class CustomAuthController extends Controller
         $money = $user->moneyaccount;
         if ($money > $sum) {
             $bill['uid'] = $request->session()->get('uid');
-            DB::table('bill')->insert($bill);
+            $dd=DB::table('bill')->insert($bill);
             $last_record = DB::table('bill')->latest('datesell')->first();
             foreach ($data as $key => $value) {
                 $detailbill['idbill'] = $last_record->idbill;

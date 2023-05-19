@@ -14,10 +14,7 @@
         </a>
        </a>
        </div>
-<<<<<<< HEAD
        
-=======
->>>>>>> khiem
     @endforeach
     {{$data->links()}}
     @endif

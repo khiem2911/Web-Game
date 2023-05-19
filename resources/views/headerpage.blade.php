@@ -32,10 +32,7 @@
                 <a href="{{URL::to('/catePro/Hành động')}}">Hành động</a>
                 <a href="{{URL::to('/catePro/Thế giới mở')}}">Thế giới mở</a>
                 <a href="{{URL::to('/catePro/Sinh tồn')}}">Sinh tồn</a>
-<<<<<<< HEAD
                 <a href="{{URL::to('/ViewUser')}}">Sinh tồn</a>
-=======
->>>>>>> khiem
             </div>
             </div>
             <a href="{{route('allgames')}}"><i class="fas fa-gamepad"></i> Games</a>
