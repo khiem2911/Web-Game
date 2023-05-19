@@ -30,6 +30,13 @@ Route::get('cart', function () {
 Route::get('admin', function () {
     return view('admin');
 })->name('admin');
-
+//Code cua Bao
+Route::get('/addCart/{idCart}', [CustomAuthController::class, 'addCart']);
+Route::get('/viewCart', [CustomAuthController::class, 'viewCart']);
+Route::get('/deleteCart/{idCart}', [CustomAuthController::class, 'DeleteItemCart']);
+Route::get('/pay', [CustomAuthController::class, 'PayCart']);
+Route::get('/ViewUser', [CustomAuthController::class, 'ViewUser']);
+Route::post('updateUser', [CustomAuthController::class, 'updateUser'])->name('updateUser');
+Route::get('viewHistory', [CustomAuthController::class, 'viewHistory']);
 
 

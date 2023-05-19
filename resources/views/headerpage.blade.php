@@ -19,7 +19,7 @@
             <a href="{{route('login')}}">Đăng nhập</a>
             <a href="{{route('register')}}">/Đăng ký</a>
             </div>
-            <a id="cart" href="{{route('cart')}}"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
+            <a id="cart" href="{{URL::to('/viewCart')}}"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
         </div>  
         <div class="banner">
             <div class="right-menu">
@@ -29,6 +29,7 @@
                 <a href="{{URL::to('/catePro/Hành động')}}">Hành động</a>
                 <a href="{{URL::to('/catePro/Thế giới mở')}}">Thế giới mở</a>
                 <a href="{{URL::to('/catePro/Sinh tồn')}}">Sinh tồn</a>
+                <a href="{{URL::to('/ViewUser')}}">Sinh tồn</a>
             </div>
             </div>
             <a href="{{route('allgames')}}"><i class="fas fa-gamepad"></i> Games</a>

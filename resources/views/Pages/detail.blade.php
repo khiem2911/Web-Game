@@ -30,7 +30,7 @@
 </div>
 <div class="btnCart">
 <button id="btn-checkout"><p style="color:white;padding-left:10px;"><i class="fas fa-credit-card" style="color:white"></i>Mua ngay</p></button>
-<button id="btn-addnow"><p style="color:#5c9bf5;padding-left:10px;"><i class="fas fa-cart-plus" style="color:#5c9bf5"></i>Thêm vào giỏ</p></button>
+<button onclick="AddCart({{$item->proId}})" id="btn-addnow"><p style="color:#5c9bf5;padding-left:10px;"><i class="fas fa-cart-plus" style="color:#5c9bf5"></i>Thêm vào giỏ</p></button>
 </div>
 </div>
 @endforeach
@@ -49,4 +49,34 @@
    @endif
    </div>
 </div>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+<script>
+
+   function AddCart(id) {
+      console.log(id)
+      $.ajax({
+                url: "/addCart/"+id,
+                type:'GET'}).
+                done(function(data) {
+                  
+                if(data=="Chưa đăng nhập")
+                {
+                  window.location="/login";
+                }
+                else
+                {
+                  alert(data)
+                }
+                });
+   }
+   
+    
+</script>
+
+
+
 @endsection

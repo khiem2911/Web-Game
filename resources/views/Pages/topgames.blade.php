@@ -14,6 +14,7 @@
         </a>
        </a>
        </div>
+       
     @endforeach
     {{$data->links()}}
     @endif
