@@ -52,6 +52,10 @@ class CustomAuthController extends Controller
 
         return view('admin.admin', ['users' => $users]);
     }
+        $users = DB::table('users')->orderByDesc('uid')->where('users.type', '=', 0)->paginate(4);
+        return view('admin.userNew', ['users' => $users]);
+    }
+
     public function createUser()
     {
 
