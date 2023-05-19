@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('email',100)->unique();	
             $table->string('avatar');
+            $table->boolean('type')->default(false); //add type boolean Users: 0=>User, 1=>Admin, 2=>Manager
+            $table->rememberToken();
             $table->timestamps();
             $table->integer('moneyaccount');	
         });

@@ -13,6 +13,7 @@
         </a>
        </a>
        </div>
+       
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <?php echo e($data->links()); ?>
 

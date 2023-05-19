@@ -1,20 +1,19 @@
 @extends('headerpage')
 @section('content')
+@if(!empty($data))
 <h1  style="margin-left:100px; display: flex;">GIỎ HÀNG (<p class="btnThanhToan">{{$count}}</p>)</h1>
     <div class="cart">
         <div class="test">
-        @if(!empty($data))
     @foreach ($data as $key=>$item) 
         <div class="info-product">
         <img style="width:250px;height:150px" src="{{URL::to('/assets/img/' .$item->imgPro)}}" alt="">
         <div class="detail-cart">
         <a style="color:black" href="{{URL::to('/detail/'.$item->nameProduct)}}">{{$item->nameProduct}}</a>
-        <p ><?php echo $item->price*(100-$item->salePrice)/100?></p>
+        <p ><?php echo number_format($item->price*(100-$item->salePrice)/100)."Đ"?></p>
         </div>
         <button class='btn btnDelete'  data-id="{{$item->proid}}" data-cost="<?php echo $item->price*(100-$item->salePrice)/100;?>"><i class="fa fa-trash" aria-hidden="true"></i></button>
         </div>
         @endforeach
-        @endif
         </div>
         <div class="info-cart">
             <div class="infocart">
@@ -31,12 +30,11 @@
             </div>
             <div class="infocart">
                 <p>Thanh toán</p>
-                <div style="display: flex;"><p id="total">{{$sum}} </p><p>  Đ</p></div>
+                <div style="display: flex;"><p id="total"><?php echo number_format($sum)."Đ" ?> </p><p></p></div>
             </div>
             <button class="btnPay">Thanh toán</button>
-        </div>
-
     </div>
+    @endif
     
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}" />

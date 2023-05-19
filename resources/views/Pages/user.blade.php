@@ -3,26 +3,26 @@
 @if(!empty($thongBao))
     <script>alert("Cập nhật thành công")</script>
 @endif
-<h3>TỔNG QUAN</h3>
-<p>Ảnh đại diện</p>
-<table>
-    <tr>
-    <th>TÊN CỦA BẠN</th>
-    <th>SĐT</th>
-    <th>EMAIL</th>
-    <th>NGÀY THAM GIA</th>
-    <th>TIỀN TÍCH LŨY</th>
-  </tr>
-
-     <tr>
-    <td>{{$data->fullname}}</td>
-    <td>{{$data->phone}}</td>
-    <td>{{$data->email}}</td>
-    <td>{{$data->datecreate}}</td>
-    <td>{{$data->moneyaccount}} Đ</td>
-  </tr>
-
-  </table>
+<div  class="containerInfo">
+  <div style="display:flex;flex-direction:'row';padding-bottom: 30px;">
+  <h2>Tổng quan </h2>
+  <img style="width:150px;height:150px;padding-left:10px" src="{{asset('assets/img/'.$data->avatar) }}" alt="" srcset="">
+</div>
+<div  class="first-info">
+  <p>Họ và Tên</p>
+  <p>Số điện thoại</p>
+  <p>Ngày tham gia</p>
+  <p>Email</p>
+  <p>Tiền tích lũy</p>
+</div>
+<div  class="first-info">
+<p>{{$data->fullname}}</p>
+<p>{{$data->phone}}</p>
+<p>{{$data->datecreate}}</p>
+<p>{{$data->email}}</p>
+<p>{{$data->moneyaccount}}Đ</p>
+</div>
+  </div>
   <a style="color:'black'" href="{{URL::to('/viewHistory')}}">Lịch sử mua hàng</a>
   <h3 class="card-header text-center">TỔNG QUAN</h3>
                         <div class="card-body">

@@ -1,4 +1,7 @@
 <?php $__env->startSection('content'); ?>
+<?php if(!empty($check)): ?>
+
+<?php endif; ?>
 <div class="detail">
 <?php if(!empty($data)): ?>
 <div id="imgDetail">
@@ -22,13 +25,13 @@
 <div class="littleDetail">
 <p > <?php echo number_format($item->price).'Đ' ?></p>
 <button class='btn'><i class="fas fa-bell"></i></button>
-<button class='btn'><i class="fas fa-heart"></i></button>
+<a href="<?php echo e(URL::to('/add/'.$item->proId)); ?>"><button class='btn'><i class="fas fa-heart"> </i></button></a>
 </div>
 <div class="littleDetail">
 <p  class="text">Mô tả: <?php echo e($item->description); ?></p>
 </div>
 <div class="btnCart">
-<button id="btn-checkout"><p style="color:white;padding-left:10px;"><i class="fas fa-credit-card" style="color:white"></i>Mua ngay</p></button>
+<a href= "<?php echo e(URL::to('/viewCart')); ?>" ><i class="fa-solid fa-credit-card" style="color:white"></i>Mua ngay</a>
 <button onclick="AddCart(<?php echo e($item->proId); ?>)" id="btn-addnow"><p style="color:#5c9bf5;padding-left:10px;"><i class="fas fa-cart-plus" style="color:#5c9bf5"></i>Thêm vào giỏ</p></button>
 </div>
 </div>
@@ -36,13 +39,43 @@
 </div>
 <?php endif; ?>
 </div>
+<div style="margin-left:100px;margin-right:100px;">
+<?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<form action="<?php echo e(route('store')); ?>" method="POST" class="mt-5">
+        <h2>Bình luận</h2>
+    <?php echo csrf_field(); ?>
+                <div class="mb-4">
+                    <input type="text"  class="form-control" id="content" name="content">
+                </div>
+                
+                <input placeholder="Nhập nội dung bình luận" type="hidden" value="<?php echo e($item->proId); ?>" name="proid" id="product_id">
+                <button style="margin-bottom:20px" id="btn-checkout"><p style="color:white"><i class="fas fa-paper-plane"></i>Send</p></button>
+    </form>
+    </div>
+
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    <?php if(!empty($comment)): ?>
+    <div style="margin-left:100px;margin-right:100px;">
+    </div>
+            <?php $__currentLoopData = $comment; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $comments): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div style="display:flex;flex-direction:'row'">
+     <img style="width:80px;border-radius:100%;margin-left:30px" src="<?php echo e(asset('assets/img/'.$comments->avatar)); ?>" alt="" srcset="">
+    <p><?php echo e($comments->username); ?></p>
+    </div>
+            <p  style="padding-left:130px"><?php echo e($comments->content); ?></p>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
+    </div>
+    <?php endif; ?>
+
 <div >
-   <h2>Sản phẩm liên quan</h2>
+<h2 style="margin-left:100px;">Sản phẩm liên quan</h2>
+
    <div class="detailRelate">
    <?php if(!empty($relate)): ?>
    <?php $__currentLoopData = $relate; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
    <a href="<?php echo e(URL::to('/detail/'.$item->nameProduct)); ?>">
-<img style="width:400px;height:200px" src="<?php echo e(URL::to('/assets/img/'.$item->imgPro)); ?>" alt="">
+<img style="width:230px;height:150px;" src="<?php echo e(URL::to('/assets/img/'.$item->imgPro)); ?>" alt="">
 </a>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
    <?php endif; ?>

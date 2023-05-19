@@ -53,13 +53,20 @@
 }
 .cart
 {
-    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-left: 300px;
     margin-right: 500px;
+}
+.btnCart a{
+    background-color: #2579f2;
+   
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 7px;
+    padding-bottom: 25px;
 }
 #logohome:hover{
     text-decoration: none;
@@ -166,30 +173,52 @@ a:hover{
     outline: none;
     color: gray;
 }
-.dropdown-menu{
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-}
-.dropdown-menu a{
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-}
-.dropdown-menu a:hover{
-    background-color: #000;
-    color: #fff;
-}
-.right-menu:hover .dropdown-menu{
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
     display: block;
-}
-.right-menu:hover #menu-btn{
-    background-color: transparent;
-}
+    
+  }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
 .price{
     padding-top: 10px;
     text-decoration: line-through;
@@ -199,6 +228,8 @@ a:hover{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 #btn-checkout{
     border: none;
@@ -243,6 +274,16 @@ a:hover{
 }
 img{
     width: 100%;
+}
+.first-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.first-info:nth-child(2) p{
+    align-self: center;
+    font-weight: bold;
 }
 @keyframes slide{
     0%{

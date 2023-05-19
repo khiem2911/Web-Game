@@ -1,7 +1,7 @@
 @extends('header')
 @section('content')
 <div style="margin-top:50px;" class="main-productnew">
-       <h1>GAMES</h1>
+       <h1>FAVORITES</h1>
     </div>
 <div id="pronew-main">
   @if(!empty($data))

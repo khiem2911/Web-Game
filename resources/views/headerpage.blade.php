@@ -19,27 +19,47 @@
             </div>
             </form>
             <div style="display:flex">
-            <a href="{{route('login')}}">Đăng nhập</a>
-            <a href="{{route('register')}}">/Đăng ký</a>
+            
+            <ul class="navbar-nav">
+                @guest
+                    <li class="nav-item">
+                        <a class="" href="{{ route('login') }}">Đăng nhập</a> /
+                        <a class="" href="{{ route('register') }}">Đăng ký</a>
+                    </li>
+                    
+                @else
+                    <li class="nav-item">
+                    <div class="dropdown">
+            <a id="menu-btn" href="">{{ Auth::User()->username }}</a>
+            <div class="dropdown-content">
+            <b  style="color:black">Số dư tài khoản</b>
+   <p style="color:black"><?php echo number_format( Auth::User()->moneyaccount ).'Đ' ?></p>
+   <a href="{{route('favourite')}}">Sản phẩm yêu thích</a>
+   <a href="{{URL::to('/ViewUser')}}">Hồ sơ</a>
+    <a href="{{ route('signout') }}">Đăng xuất</a>
+     </div>
+</div>
+                    </li>
+                @endguest
+            </ul>
             </div>
             <a id="cart" href="{{URL::to('/viewCart')}}"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
         </div>  
         <div class="banner">
-            <div class="right-menu">
+            <div class="dropdown">
             <a id="menu-btn" href=""><i class="fas fa-bars" style="padding-right:5px;"></i>Danh Mục</a>
-            <div class="dropdown-menu">
+            <div class="dropdown-content">
             <a href="{{URL::to('/catePro/Kinh dị')}}">Kinh dị</a>
                 <a href="{{URL::to('/catePro/Hành động')}}">Hành động</a>
                 <a href="{{URL::to('/catePro/Thế giới mở')}}">Thế giới mở</a>
                 <a href="{{URL::to('/catePro/Sinh tồn')}}">Sinh tồn</a>
-                <a href="{{URL::to('/ViewUser')}}">Sinh tồn</a>
             </div>
             </div>
             <a href="{{route('allgames')}}"><i class="fas fa-gamepad"></i> Games</a>
             <a href="{{route('newgame')}}">Sản phẩm mới</a>
             <a href="{{route('topgames')}}"><i class="fas fa-fire"></i> Sản phẩm mua nhiều</a>
             <a href="{{route('salegames')}}"><i class="fas fa-percent"></i> Sản phẩm khuyến mãi</a>
-
+            <a href="{{route('favourite')}}"><i class="fas fa-heart"></i> Sản phẩm yêu thích</a>
         </div>  
         </div>   
         </div>
