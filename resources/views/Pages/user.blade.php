@@ -23,7 +23,7 @@
   </tr>
 
   </table>
-  <a href="{{URL::to('/viewHistory')}}">Lịch sử mua hàng</a>
+  <a style="color:'black'" href="{{URL::to('/viewHistory')}}">Lịch sử mua hàng</a>
   <h3 class="card-header text-center">TỔNG QUAN</h3>
                         <div class="card-body">
                             <form action="{{ route('updateUser') }}" method="POST">

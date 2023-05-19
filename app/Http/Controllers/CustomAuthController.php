@@ -118,7 +118,7 @@ class CustomAuthController extends Controller
             ->join('bill', 'detailbill.idbill', '=', 'bill.idbill')
             ->join('products', 'detailbill.proid', '=', 'products.proid')
                 ->where('bill.uid', '=', $request->session()->get('uid'))->get();
-                dd($data);
+                return view('Pages.history',[$data]);
     }
 
     public function getCatePro($id)
@@ -135,7 +135,6 @@ class CustomAuthController extends Controller
             'confirmpass' => 'required|same:password',
             'image' => 'required'
         ]);
-
         $data = $request->all();
         $check = $this->create($data);
         return redirect("dashboard")->withSuccess('You have signed-in');
