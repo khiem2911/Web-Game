@@ -14,6 +14,10 @@ Route::get('newgame', [CustomAuthController::class, 'getNewGames'])->name('newga
 Route::get('salegames', [CustomAuthController::class, 'getSaleGames'])->name('salegames'); 
 Route::get('/detail/{id}', [CustomAuthController::class, 'getDetail']);
 Route::get('/catePro/{id}', [CustomAuthController::class, 'getCatePro']);
+<<<<<<< HEAD
+=======
+Route::post('/product', [CustomAuthController::class, 'store']);
+>>>>>>> khiem
 Route::get('/', function () {
     return view('Pages.welcome');
 })->name('welcome');
@@ -24,7 +28,7 @@ Route::get('register', function () {
     return view('register');
 })->name('register');
 Route::get('cart', function () {
-    return view('cart');
+    return view('Pages.cart');
 })->name('cart');
 
 Route::get('admin', function () {

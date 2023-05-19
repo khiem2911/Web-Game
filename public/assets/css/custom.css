@@ -91,6 +91,8 @@
 #btn-search{
     background-color: #0a59cc;
     padding: 5px;
+    border: none;
+    color: white;
 }
 #btn-search:hover{
     background-color: #2579f2;
@@ -154,9 +156,12 @@ a:hover{
     display: flex;
     flex-direction: row;
 }
+<<<<<<< HEAD
 .info-cart{
     padding-left: 30px;
 }
+=======
+>>>>>>> khiem
 .btn{
     background: transparent;
     border: none;

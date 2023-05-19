@@ -30,7 +30,11 @@
 </div>
 <div class="btnCart">
 <button id="btn-checkout"><p style="color:white;padding-left:10px;"><i class="fas fa-credit-card" style="color:white"></i>Mua ngay</p></button>
+<<<<<<< HEAD
 <button onclick="AddCart({{$item->proId}})" id="btn-addnow"><p style="color:#5c9bf5;padding-left:10px;"><i class="fas fa-cart-plus" style="color:#5c9bf5"></i>Thêm vào giỏ</p></button>
+=======
+<button id="btn-addnow"><p style="color:#5c9bf5;padding-left:10px;"><i class="fas fa-cart-plus" style="color:#5c9bf5"></i>Thêm vào giỏ</p></button>
+>>>>>>> khiem
 </div>
 </div>
 @endforeach
@@ -49,6 +53,7 @@
    @endif
    </div>
 </div>
+<<<<<<< HEAD
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}" />
@@ -80,3 +85,6 @@
 
 
 @endsection
+=======
+@endsection
+>>>>>>> khiem
