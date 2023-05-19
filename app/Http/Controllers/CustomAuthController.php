@@ -2,21 +2,33 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use Carbon\Exceptions\EndLessPeriodException;
 use Illuminate\Http\Request;
 use Hash;
 use Session;
 use RealRashid\SweetAlert\Facades\Alert;
+=======
+use App\Models\Category;
+use App\Models\CategoryProduct;
+use App\Models\Product;
+>>>>>>> hieu
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+<<<<<<< HEAD
 use Illuminate\Support\Collection;
+=======
+use Ramsey\Uuid\Type\Integer;
+>>>>>>> hieu
 
 class CustomAuthController extends Controller
 {
 
-    public function index()
+    public function userNew()
     {
+<<<<<<< HEAD
         return view('auth.login');
     }
 
@@ -34,10 +46,25 @@ class CustomAuthController extends Controller
         }
 
         return redirect("login")->withSuccess('Login details are not valid');
+=======
+        $users = DB::table('users')->orderByDesc('uid')->paginate(2);
+        //$users = DB::table('users');
+        // foreach ($users as $i) {
+        //     echo 'id: '.$i."<br>";
+        // }
+        //echo  $users; 
+
+        return view('admin.admin', ['users' => $users]);
+    }
+    public function createUser()
+    {
+        return view('admin.createUser');
+>>>>>>> hieu
     }
 
-    public function registration()
+    public function customUser(Request $request)
     {
+<<<<<<< HEAD
         return view('auth.registration');
     }
     public function getAll()
@@ -146,10 +173,14 @@ class CustomAuthController extends Controller
     
     public function customRegistration(Request $request)
     {
+=======
+>>>>>>> hieu
         $request->validate([
-            'name' => 'required',
+            'username' => 'required',
+            'fullname' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
+<<<<<<< HEAD
             'confirmpass' => 'required|same:password',
             'image' => 'required'
         ]);
@@ -187,6 +218,179 @@ class CustomAuthController extends Controller
     {
         $image = DB::table('users')->select('image')->get();
         return view('auth.image', ["image" => $image]);
+=======
+            'phone' => 'required',
+            'moneyaccount' => 'required',
+            'avatar' => 'required',
+
+
+        ]);
+        DB::table('users')->insert(
+            array(
+                'username'     =>   $request->username,
+                'fullname'   =>  $request->fullname,
+                'email' => $request->email,
+                'password' => $request->password,
+                'phone' => $request->phone,
+                'moneyaccount' => $request->moneyaccount,
+                'avatar' => $request->avatar,
+
+            )
+        );
+        return redirect("admin")->withSuccess('Success!');
+    }
+
+    public function editUser($uid)
+    {
+        $user = User::find($uid);
+        return view("admin.editUser", compact('user'));
+    }
+
+    public function update(Request $request, $uid)
+    {
+        
+        DB::table('users')->where('uid', $uid)->update(array(
+            'username'     =>   $request->username,
+            'fullname'   =>  $request->fullname,
+            'email' => $request->email,
+            'password' => $request->password,
+            'phone' => $request->phone,
+            'moneyaccount' => $request->moneyaccount,
+            'avatar' => $request->avatar,
+        ));
+        return redirect("admin")->withSuccess('Success!');
+    }
+    public function destroy($uid)
+    {
+        DB::table('users')
+        ->where('uid',$uid)
+        ->delete();
+        return redirect("admin");
+    }
+    //Hiển thị sản phẩm
+    public function productNew()
+    {
+        $users = DB::table('products')->orderByDesc('proId')->paginate(25);
+        //$users = DB::table('users');
+        // foreach ($users as $i) {
+        //     echo 'id: '.$i."<br>";
+        // }
+        //echo  $users; 
+        return view('admin.product', ['products' => $users]);
+    }
+    //Thêm sản phẩm
+    public function createProduct()
+    {
+        return view('admin.createProduct');
+    }
+    //Chức năng thêm sản phẩm
+    public function customProduct(Request $request)
+    {
+        echo 'heloo';
+        $request->validate([
+            'nameProduct' => 'required',
+            'cateid' => 'required',
+            'description' => 'required',
+            'idadmin' => 'required',
+            'price' => 'required',
+            'status' => 'required',
+            'salePrice' => 'required',
+            'imgPro' => 'required',
+        ]);
+        DB::table('products')->insert(
+            array(
+                'nameProduct'     =>   $request->nameProduct,
+                'cateid'   =>  $request->cateid,
+                'imgPro' => $request->imgPro,
+                'description' => $request->description,
+                'idadmin' => $request->idadmin,
+                'price' => $request->price,
+                'status' => $request->status,
+                'salePrice' => $request ->salePrice,
+            )
+        );
+        return redirect("product")->withSuccess('Success!');
+    }
+    // Sửa sản phẩm
+    public function editProduct($proId)
+    {
+        $proId = Product::find($proId);
+        return view("admin.editProduct", compact('proId'));
+    }
+    // Sửa sản phẩm
+    public function updateProduct(Request $request, $proId)
+    {    
+        DB::table('products')->where('proId', $proId)->update(array(
+            'nameProduct'     =>   $request->nameProduct,
+            'cateid'   =>  $request->cateid,
+            'description' => $request->description,
+            'idadmin' => $request->idadmin,
+            'price' => $request->price,
+            'status' => $request->status,
+            'salePrice' => $request->salePrice,
+            'imgPro' => $request->imgPro,
+        ));
+        return redirect("product")->withSuccess('Success!');
+    } 
+    // Xóa sản phẩm
+    public function destroyProduct($proId)
+    {
+        DB::table('products')
+        ->where('proId',$proId)
+        ->delete();
+        return redirect("product");
+    }
+    //Hiển thị thể loại
+    public function categoryNew()
+    {
+        $category = DB::table('categoryproducts')->orderBy('cateid')->paginate(10);
+        //$users = DB::table('users');
+        // foreach ($users as $i) {
+        //     echo 'id: '.$i."<br>";
+        // }
+        //echo  $users; 
+        return view('admin.category', ['categoryproducts' => $category]);
+    }
+    //Thêm thể loại
+    public function createCategory()
+    {
+        return view('admin.createCategory');
+    }
+    //Thêm thể loại
+    public function customCategory(Request $request)
+    {
+        $request->validate([
+            'nameCate' => 'required',
+        ]);
+        DB::table('categoryproducts')->insert(
+            array(
+                'nameCate' =>   $request->nameCate,
+            )
+        );
+        return redirect("category")->withSuccess('Success!');
+    }
+    //Sửa thể loại
+    public function editCategory($cateid)
+    {
+        $cateid = Categoryproduct::find($cateid);
+        return view("admin.editCategory", compact('cateid'));
+    }
+    //Sửa thể loại
+    public function updateCategory(Request $request, $cateid)
+    {    
+        DB::table('categoryproducts')->where('cateid', $cateid)->update(array(
+            'nameCate'     =>   $request->nameCate,
+        ));
+        return redirect("category")->withSuccess('Success!');
+    } 
+    //Xóa thể loại
+    public function destroyCategory($cateid)
+    {
+        DB::table('categoryproducts')
+        ->where('cateid',$cateid)
+        ->delete();
+        return redirect("category");
+>>>>>>> hieu
     }
     public function DeleteItemCart(Request $request, $idPro)
     {
