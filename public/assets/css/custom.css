@@ -156,12 +156,9 @@ a:hover{
     display: flex;
     flex-direction: row;
 }
-<<<<<<< HEAD
 .info-cart{
     padding-left: 30px;
 }
-=======
->>>>>>> khiem
 .btn{
     background: transparent;
     border: none;

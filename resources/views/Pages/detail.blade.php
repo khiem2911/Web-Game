@@ -21,7 +21,7 @@
 <p  class="text">Thể loại: {{$item->nameCate}}</p>
 </div>
 <div class="littleDetail">
-<p class='price'> <?php echo number_format($item->price).'Đ' ?></p>
+<p > <?php echo number_format($item->price).'Đ' ?></p>
 <button class='btn'><i class="fas fa-bell"></i></button>
 <button class='btn'><i class="fas fa-heart"></i></button>
 </div>

@@ -11,15 +11,18 @@
         <div class="header">
         <div class="banner">
             <a id="logohome"  href="<?php echo e(route('welcome')); ?>"><img style="width:50px;height:50px;" src="<?php echo e(asset('assets/img/shopgame.png')); ?>" > Fugame Shop </a>
+            <form action="/product" method="post">
+            <?php echo csrf_field(); ?>  
             <div style="display:flex;flex-direction:flex">
             <input type="search" placeholder="Tìm kiếm sản phẩm" name="search" id="">
-            <a id="btn-search" href=""><i class="fas fa-search"></i></a>
+            <button id="btn-search" type="submit"><i class="fas fa-search"></i></button>
             </div>
+            </form>
             <div style="display:flex">
             <a href="<?php echo e(route('login')); ?>">Đăng nhập</a>
             <a href="<?php echo e(route('register')); ?>">/Đăng ký</a>
             </div>
-            <a id="cart" href="<?php echo e(route('cart')); ?>"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
+            <a id="cart" href="<?php echo e(URL::to('/viewCart')); ?>"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
         </div>  
         <div class="banner">
             <div class="right-menu">
@@ -29,6 +32,7 @@
                 <a href="<?php echo e(URL::to('/catePro/Hành động')); ?>">Hành động</a>
                 <a href="<?php echo e(URL::to('/catePro/Thế giới mở')); ?>">Thế giới mở</a>
                 <a href="<?php echo e(URL::to('/catePro/Sinh tồn')); ?>">Sinh tồn</a>
+                <a href="<?php echo e(URL::to('/ViewUser')); ?>">Sinh tồn</a>
             </div>
             </div>
             <a href="<?php echo e(route('allgames')); ?>"><i class="fas fa-gamepad"></i> Games</a>
