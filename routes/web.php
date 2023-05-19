@@ -39,9 +39,7 @@ Route::get('cart', function () {
     return view('Pages.cart');
 })->name('cart');
 
-Route::get('admin', function () {
-    return view('admin');
-})->name('admin');
+
 //Code cua Bao
 Route::get('/addCart/{idCart}', [CustomAuthController::class, 'addCart']);
 Route::get('/viewCart', [CustomAuthController::class, 'viewCart']);
@@ -50,7 +48,6 @@ Route::get('/pay', [CustomAuthController::class, 'PayCart']);
 Route::get('/ViewUser', [CustomAuthController::class, 'ViewUser']);
 Route::post('updateUser', [CustomAuthController::class, 'updateUser'])->name('updateUser');
 Route::get('viewHistory', [CustomAuthController::class, 'viewHistory']);
-Route::get('/', [CustomAuthController::class, 'welcome']);
 Route::get('admin', [CustomAuthController::class, 'userNew'])->name('admin');
 Route::get('create-User', [CustomAuthController::class, 'createUser'])->name('create.user');
 Route::post('custom-User', [CustomAuthController::class, 'customUser'])->name('custom.user');

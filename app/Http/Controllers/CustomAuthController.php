@@ -2,33 +2,26 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
 use Carbon\Exceptions\EndLessPeriodException;
 use Illuminate\Http\Request;
 use Hash;
 use Session;
 use RealRashid\SweetAlert\Facades\Alert;
-=======
 use App\Models\Category;
 use App\Models\CategoryProduct;
 use App\Models\Product;
->>>>>>> hieu
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
-<<<<<<< HEAD
 use Illuminate\Support\Collection;
-=======
 use Ramsey\Uuid\Type\Integer;
->>>>>>> hieu
+
 
 class CustomAuthController extends Controller
 {
 
     public function userNew()
     {
-<<<<<<< HEAD
         return view('auth.login');
     }
 
@@ -46,7 +39,7 @@ class CustomAuthController extends Controller
         }
 
         return redirect("login")->withSuccess('Login details are not valid');
-=======
+
         $users = DB::table('users')->orderByDesc('uid')->paginate(2);
         //$users = DB::table('users');
         // foreach ($users as $i) {
@@ -59,12 +52,11 @@ class CustomAuthController extends Controller
     public function createUser()
     {
         return view('admin.createUser');
->>>>>>> hieu
     }
 
     public function customUser(Request $request)
     {
-<<<<<<< HEAD
+
         return view('auth.registration');
     }
     public function getAll()
@@ -173,14 +165,12 @@ class CustomAuthController extends Controller
     
     public function customRegistration(Request $request)
     {
-=======
->>>>>>> hieu
+
         $request->validate([
             'username' => 'required',
             'fullname' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
-<<<<<<< HEAD
             'confirmpass' => 'required|same:password',
             'image' => 'required'
         ]);
@@ -217,14 +207,10 @@ class CustomAuthController extends Controller
     public function image()
     {
         $image = DB::table('users')->select('image')->get();
-        return view('auth.image', ["image" => $image]);
-=======
-            'phone' => 'required',
-            'moneyaccount' => 'required',
-            'avatar' => 'required',
-
-
-        ]);
+        return view('auth.image', ["image" => $image,  'phone' => 'required',
+        'moneyaccount' => 'required',
+        'avatar' => 'required',
+]);
         DB::table('users')->insert(
             array(
                 'username'     =>   $request->username,
@@ -390,7 +376,6 @@ class CustomAuthController extends Controller
         ->where('cateid',$cateid)
         ->delete();
         return redirect("category");
->>>>>>> hieu
     }
     public function DeleteItemCart(Request $request, $idPro)
     {
