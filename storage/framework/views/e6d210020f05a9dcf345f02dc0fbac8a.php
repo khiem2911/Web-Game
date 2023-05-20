@@ -64,7 +64,6 @@
             <a href="<?php echo e(route('newgame')); ?>"><i class="fab fa-drupal"></i> Sản phẩm mới</a>
             <a href="<?php echo e(route('topgames')); ?>"><i class="fas fa-fire"></i> Sản phẩm mua nhiều</a>
             <a href="<?php echo e(route('salegames')); ?>"><i class="fas fa-percent"></i> Sản phẩm khuyến mãi</a>
-            <a href="<?php echo e(route('favourite')); ?>"><i class="fas fa-heart"></i> Sản phẩm yêu thích</a>
         </div>  
         </div>   
         <div class="container">

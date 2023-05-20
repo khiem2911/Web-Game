@@ -623,7 +623,7 @@ class CustomAuthController extends Controller
                 return view('Pages.detail', ['data' => $data,'relate'=>$relate,'comment'=>$comment]);
             }
         } else {
-            return "Chưa đăng nhập";
+            return view("Pages.login");
         }
     }
 
