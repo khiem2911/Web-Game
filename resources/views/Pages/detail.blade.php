@@ -60,7 +60,6 @@
     </div>
             @foreach ($comment as $comments)
             <div style="display:flex;flex-direction:'row'">
-     <img style="width:80px;border-radius:100%;margin-left:30px" src="{{asset('assets/img/'.$comments->avatar) }}" alt="" srcset="">
     <p>{{ $comments->username }}</p>
     </div>
             <p  style="padding-left:130px">{{ $comments->content }}</p>

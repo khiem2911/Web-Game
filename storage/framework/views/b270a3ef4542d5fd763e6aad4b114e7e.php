@@ -59,7 +59,6 @@
     </div>
             <?php $__currentLoopData = $comment; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $comments): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div style="display:flex;flex-direction:'row'">
-     <img style="width:80px;border-radius:100%;margin-left:30px" src="<?php echo e(asset('assets/img/'.$comments->avatar)); ?>" alt="" srcset="">
     <p><?php echo e($comments->username); ?></p>
     </div>
             <p  style="padding-left:130px"><?php echo e($comments->content); ?></p>

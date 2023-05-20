@@ -7,7 +7,7 @@
   @if(!empty($data))
     @foreach ($data as $key=>$item)
 <div class="pronew">
-          <a href="{{URL::to('/detail/'.$item->proId)}}">
+          <a href="{{URL::to('/detail/'.$item->nameProduct)}}">
         <img style="width:350px;height:200px" src="{{URL::to('/assets/img/' .$item->imgPro) }}" alt="">
         <p>{{$item->nameProduct}}</p>
         <p > <?php echo number_format($item->price).'Đ' ?></p>
