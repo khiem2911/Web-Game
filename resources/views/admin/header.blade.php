@@ -38,12 +38,8 @@
         <!-- Topbar Start -->
         <div class="navbar-custom">
             <ul class="list-unstyled topnav-menu float-right mb-0">
-
                 <li class="d-none d-sm-block">
-                    <form class="app-search">
-                        <div class="app-search-box">
-                            <div class="input-group">
-                    <form class="app-search" action="{{ route('search.product') }}" method="GET">
+                    <form class="app-search" action="{{ route('searchAdmin') }}" method="GET">
                         <div class="app-search-box">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="search" placeholder="Search...">
@@ -124,12 +120,12 @@
                         <!-- <span class="logo-sm-text-dark">X</span> -->
                 <a href="{{route('admin')}}" class="logo text-center">
                     <span class="logo-lg">
-                        <img src="\assets\images\shopgame.png" alt="" height="66">
+                        <img src="\assets\img\shopgame.png" alt="" height="66">
                         <span class="logo-lg-text-light">Gaming</span>
                     </span>
                     <span class="logo-sm">
                         <span class="logo-sm-text-dark">G</span>
-                        <img src="\assets\images\shopgame.png" alt="" height="28">
+                        <img src="\assets\img\shopgame.png" alt="" height="28">
                     </span>
                 </a>
             </div>

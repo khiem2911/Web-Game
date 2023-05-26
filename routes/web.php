@@ -82,7 +82,8 @@ Route::get('edit-User/{uid}', [CustomAuthController::class, 'editUser'])->name('
 Route::put('update-User/{uid}', [CustomAuthController::class, 'update'])->name('custom.update');
 Route::delete('destroy/{uid}', [CustomAuthController::class, 'destroy'])->name('user.destroy');
 Route::get('topsell', [CustomAuthController::class, 'topSell'])->name('topsell.product');
-Route::get('seachProduct', [CustomAuthController::class, 'search'])->name('search.product');
+Route::get('seachProduct', [CustomAuthController::class, 'Searchpro'])->name('search.product');
+Route::get('searchAdmin', [CustomAuthController::class, 'searchAdmin'])->name('searchAdmin');
 Route::get('product-Statistics', [CustomAuthController::class, 'statistics'])->name('statistics.product');
 Route::get('product', [CustomAuthController::class, 'productNew'])->name('product');
 Route::get('create-Product', [CustomAuthController::class, 'createProduct'])->name('create.product');

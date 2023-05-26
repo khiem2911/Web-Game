@@ -30,7 +30,7 @@
             </div>
             <div class="infocart">
                 <p>Thanh toán</p>
-                <div style="display: flex;"><p id="total"><?php echo number_format($sum)."Đ" ?> </p><p></p></div>
+                <div style="display: flex;"><p id="total"><?php echo $sum ?> </p>Đ<p></p></div>
             </div>
             <button class="btnPay">Thanh toán</button>
     </div>
@@ -51,8 +51,9 @@
                 done(function(data) {
                     $('.test').empty();
                     $('.test').html(data);
-                    $('.btnThanhToan').html(Number($('.btnThanhToan').text())-1);
+                    $('.btnThanhToan').html(parseInt($('.btnThanhToan').text())-1);
                     $('#total').html(parseInt($('#total').text())-soTienTru);
+
                 });
             }
         );

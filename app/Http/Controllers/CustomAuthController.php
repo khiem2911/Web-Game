@@ -109,7 +109,7 @@ class CustomAuthController extends Controller
                 'username'     =>   $request->username,
                 'fullname'   =>  $request->fullname,
                 'email' => $request->email,
-                'password' => $request->password,
+                'password' =>Hash::make( $request->password),
                 'phone' => $request->phone,
                 'moneyaccount' => $request->moneyaccount,
                 'avatar' => $request->avatar,
@@ -214,7 +214,7 @@ class CustomAuthController extends Controller
                 'sum' => $sum
             ]);
         } else {
-            return view('login');
+            return view('Pages.login');
         }
     }
     public function viewHistory(Request $request)
@@ -306,7 +306,7 @@ class CustomAuthController extends Controller
             ->paginate(4);
         return view('admin.topsell', ['product' => $product]);
     }
-    public function search(Request $request)
+    public function searchAdmin(Request $request)
     {
         
         $search = $request->input('search');
@@ -314,7 +314,7 @@ class CustomAuthController extends Controller
         $products = DB::table('products')
             ->where('nameProduct', 'like', '%' . $search . '%')
             ->paginate(4);
-        return view('admin.searchProduct', compact('products', 'search'))->withInput($request->all());
+        return view('admin.searchAdmin', compact('products', 'search'))->withInput($request->all());
     }
     
     public function statistics(Request $request)

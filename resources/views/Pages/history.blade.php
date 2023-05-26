@@ -3,13 +3,13 @@
 @if(!empty($thongBao))
     <script>alert("Cập nhật thành công")</script>
 @endif
-<h3>TỔNG QUAN</h3>
-<p>Ảnh đại diện</p>
-<table>
+<h3 style = "text-align: center;">LỊCH SỬ GIAO DỊCH</h3>
+<div>
+<table style = "margin-left:350px">
     <tr>
-    <th>THỜI GIAN</th>
+    <th >THỜI GIAN</th>
     <th>MÃ ĐƠN HÀNG</th>
-    <th>SẢN PHẨM</th>
+    <th style = "width:500px">SẢN PHẨM</th>
     <th>TỔNG TIỀN</th>
   </tr>
   @foreach ($data['bill'] as $key=>$item) 
@@ -20,13 +20,14 @@
     <td>@foreach ($data['chiTiet'] as $key=>$item1) 
     @if($item1->idbill==$item->idbill)
     <?php $sum += $item1->price; ?>
-      <p>{{$item1->nameProduct}}<p>
+      <p><img style="width:100px;height:100px;" src="{{ asset('assets/img/'.$item1->imgPro) }}" > {{$item1->nameProduct}}<p>
         @endif
     @endforeach
     </td>
     <td>{{$sum}}</td>
   </tr>    @endforeach
   </table>
+</div>
 <p></p>
 <span>
 

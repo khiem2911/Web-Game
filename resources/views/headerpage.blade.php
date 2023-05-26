@@ -36,6 +36,7 @@
    <p style="color:black"><?php echo number_format( Auth::User()->moneyaccount ).'Đ' ?></p>
    <a href="{{route('favourite')}}">Sản phẩm yêu thích</a>
    <a href="{{URL::to('/ViewUser')}}">Hồ sơ</a>
+   <a href="{{URL::to('/viewHistory')}}">Lịch sử giao dịch</a>
     <a href="{{ route('signout') }}">Đăng xuất</a>
      </div>
 </div>

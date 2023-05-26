@@ -1,5 +1,5 @@
-@extends('header')
-@section('content')
+@include('header')
+
 <div style="margin-top:50px;" class="main-productnew">
        <h1>SALE GAMES</h1>
     </div>
@@ -19,4 +19,4 @@
     {{$data->links()}}
     @endif
     </div>
-@endsection
+    @include('footer')

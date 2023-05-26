@@ -1,17 +1,88 @@
-.banner{
+/* footer */
+body {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN5pSGW3zEbDIdPzsA2LrIpXqRZN7D_0s9lA&usqp=CAU');
+    background-size: cover;
+
+}
+
+.content-h {
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/798fc33f-5338-426c-95ef-0dce36f68da0/d758mbq-3e6c2f7d-9887-4049-b362-a37dc3f28c70.png/v1/fill/w_1192,h_670,q_70,strp/background_gaming__website__by_fnkk_d758mbq-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6IlwvZlwvNzk4ZmMzM2YtNTMzOC00MjZjLTk1ZWYtMGRjZTM2ZjY4ZGEwXC9kNzU4bWJxLTNlNmMyZjdkLTk4ODctNDA0OS1iMzYyLWEzN2RjM2YyOGM3MC5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.yP3sGWj_9ppEPyxI6iR7Kg3TAfwh15t32lAFi-spvT8");
+    background-size: cover;
+}
+
+.container-f {
+    display: grid;
+    grid-template-columns: 1fr 0.4fr;
+    padding: 0 50px;
+
+}
+
+.column2 {
+    display: grid;
+    grid-gap: 10px;
+}
+
+.bq {
+    margin-left: 20px;
+}
+
+.site-footer {
+    background-color: #393E52;
+    color: #fff;
+    padding: 1em 0;
+    display: grid;
+
+}
+
+.footer-nav li {
+    display: inline-block;
+    margin-right: 1.5em;
+    font-size: 1.1em;
+}
+
+.footer-nav a:hover {
+    color: #fbb034;
+    text-decoration: none;
+}
+
+.footer-logo img {
+    height: 45px;
+    width: 45px;
+}
+
+.footer-social li {
+    display: inline-block;
+    margin-left: 1.5em;
+}
+
+.footer-social i {
+    font-size: 1.5em;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* home */
+.banner {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     color: white;
 }
-.input-btn{
+
+.input-btn {
     width: 400px;
 }
-#logohome{
+
+#logohome {
     font-size: 30px;
 }
-.info-product{
+
+.info-product {
     display: flex;
     border: solid 2px #e6e8eb;
     flex-direction: row;
@@ -23,36 +94,42 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.test{
+
+.test {
     display: flex;
     flex-direction: column;
 }
-.detail-cart{
+
+.detail-cart {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 500px;
 }
-#detail-cart p{
+
+#detail-cart p {
     font-weight: bold;
 }
-.infocart{
+
+.infocart {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 250px;
     margin-right: 30px;
-   
+
 }
-.infocart p{
+
+.infocart p {
     font-weight: bold;
 }
-.main-product p{
+
+.main-product p {
     font-size: 20px;
     font-weight: bold;
 }
-.cart
-{
+
+.cart {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -60,26 +137,30 @@
     margin-left: 300px;
     margin-right: 500px;
 }
-.btnCart a{
+
+.btnCart a {
     background-color: #2579f2;
-   
+
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 7px;
     padding-bottom: 25px;
 }
-#logohome:hover{
+
+#logohome:hover {
     text-decoration: none;
 }
-#login-btn{
+
+#login-btn {
     margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 10px;
-   
+
 }
-.btn-login{
+
+.btn-login {
     background-color: #dd163b;
     padding: 5px;
     color: white;
@@ -87,68 +168,110 @@
     border-radius: 50px;
     width: 200px;
 }
-#login-form{
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   margin-left: 650px;
-   margin-right: 650px;
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 650px;
+    margin-right: 650px;
 }
-#btn-search{
+
+.input-search {
+    max-width: 190px;
+    height: 100%;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #fff;
+    caret-color: #f7f7f8;
+    color: #E0E8E9;
+    padding: 7px 10px;
+    border: 2px solid transparent;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    margin-right: 1px;
+    transition: all .2s ease;
+}
+
+.input-search:hover {
+    border: 2px solid rgba(255, 255, 255, 0.16);
+}
+
+.input-search:focus {
+    border: 2px solid #a970ff;
+    background-color: #E8E8E8;
+}
+
+#btn-search {
     background-color: #0a59cc;
     padding: 5px;
     border: none;
     color: white;
+    border-radius: 10%;
+
 }
-#btn-search:hover{
+
+#btn-search:hover {
     background-color: #2579f2;
 }
-.header{
-    background-color: #2579f2;
+
+.header {
+    background-image: url('https://img.freepik.com/foto-gratis/fondo-azul-degradado-lujo-abstracto-azul-oscuro-liso-banner-estudio-vineta-negra_1258-82761.jpg');
+    opacity: 0.75;
 }
-a#cart{
+
+a#cart {
     border: 1px solid white;
     padding: 5px;
     opacity: 0.8;
 }
-a#cart:hover{
-    text-decoration: none;  
+
+a#cart:hover {
+    text-decoration: none;
     opacity: 1;
 }
-a
-{
+
+a {
     color: white;
     text-decoration: none;
 }
-#pronew-main{
+
+#pronew-main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
 }
-#pronew-main a{
+
+#pronew-main a {
     color: #000;
 }
-.pronew{
+
+.pronew {
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
-a:hover{
+
+a:hover {
     color: white;
     text-decoration: underline;
 }
-.right-menu{
+
+.right-menu {
     position: relative;
     display: inline-block;
     float: right;
 }
-.text{
+
+.text {
     padding-left: 10px;
 }
-.detail{
+
+.detail {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -156,23 +279,28 @@ a:hover{
     margin-left: 400px;
     margin-right: 300px;
 }
-.headerDetail{
+
+.headerDetail {
     padding-left: 20px;
 }
-.littleDetail{
+
+.littleDetail {
     display: flex;
     flex-direction: row;
 }
-.info-cart{
+
+.info-cart {
     padding-left: 30px;
 }
-.btn{
+
+.btn {
     background: transparent;
     border: none;
     font-size: 30px;
     outline: none;
     color: gray;
 }
+
 .dropbtn {
     background-color: #4CAF50;
     color: white;
@@ -180,50 +308,54 @@ a:hover{
     font-size: 16px;
     border: none;
     cursor: pointer;
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
     position: relative;
     display: inline-block;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #f1f1f1}
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
     display: block;
-    
-  }
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {
+
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
     background-color: #3e8e41;
-  }
-.price{
+}
+
+.price {
     padding-top: 10px;
     text-decoration: line-through;
 }
-.detailRelate{
+
+.detailRelate {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -231,84 +363,103 @@ a:hover{
     margin-left: 100px;
     margin-right: 100px;
 }
-#btn-checkout{
+
+#btn-checkout {
     border: none;
     background-color: #2579f2;
     border-radius: 5px;
     padding: 5px;
 }
-#btn-addnow{
+
+#btn-addnow {
     border-width: 2px;
     border-color: #d1d5db;
     color: #5c9bf5;
     border-radius: 5px;
     padding: 5px;
 }
-.container{
+
+.container {
     position: absolute;
-    top:3%;
+    top: 3%;
     left: 50%;
     width: 50vmin;
-    transform: translate(-50%,50%);
+    transform: translate(-50%, 50%);
     border-radius: 8px;
     box-shadow: 10px 25px 28px rgba(0, 0, 0, 0.3);
     overflow: hidden;
 }
-.main-product{
-    margin-left: 150px;
-    margin-right: 150px;
+
+.main-product {
+    margin-left: 82px;
+    margin-right: 82px;
 }
-.main-product a{
+
+.main-product a {
     color: black;
 }
-.main-productnew{
+
+.main-productnew {
     display: flex;
     flex-direction: row;
-   justify-content: space-between;
-   border-bottom: #686767 solid 2px;
+    justify-content: space-between;
+    border-bottom: #686767 solid 2px;
 }
-.img-container{
+
+.img-container {
     width: 104%;
     display: flex;
     animation: slide 16s infinite;
+
+
 }
-img{
+
+img {
     width: 100%;
 }
-.first-info{
+
+.first-info {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
-.first-info:nth-child(2) p{
+
+.first-info:nth-child(2) p {
     align-self: center;
     font-weight: bold;
 }
-@keyframes slide{
-    0%{
+
+@keyframes slide {
+    0% {
         transform: translate(0);
     }
-    25%{
+
+    25% {
         transform: translate(0);
     }
-    30%{
+
+    30% {
         transform: translate(-100%);
     }
-    50%{
+
+    50% {
         transform: translate(-100%);
     }
-    55%{
+
+    55% {
         transform: translate(-200%);
     }
-    75%{
+
+    75% {
         transform: translate(-200%);
     }
-    80%{
+
+    80% {
         transform: translate(-300%);
     }
-    100%{
+
+    100% {
         transform: translate(-300%);
     }
 }
-
