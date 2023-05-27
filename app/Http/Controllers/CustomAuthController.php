@@ -609,7 +609,10 @@ class CustomAuthController extends Controller
             $uidCar = DB::table("wishlist")->where([['proid', '=', $idPro], ['uid', '=', $cart['uid']]])->get();
             if ($uidCar->count()) {
                 
-                return "Bạn đã thêm sản phẩm này rồi" ;
+                
+return redirect()->back() ->with('alert', 'Bạn đã thêm sản phẩm này rồi');
+
+
             } else {
                 DB::table('wishlist')->insert($cart);
                 $data = DB::table('products')->join('categoryproducts','categoryproducts.cateid','=','products.cateid')->where('products.proId','=',$idPro)->select('products.*','categoryproducts.nameCate')->get();
