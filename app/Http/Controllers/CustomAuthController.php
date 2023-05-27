@@ -553,9 +553,11 @@ class CustomAuthController extends Controller
      } 
     
 
-  public function getFavourite()
+  public function getFavourite(Request $request)
   {
-    $data = DB::table('wishlist')->join('products','products.proId','=','wishlist.proid')->simplePaginate(15);;
+    $id = $request->session()->get('uid');
+    $data = DB::table('wishlist')->join('products','products.proId','=','wishlist.proid')->join('users','users.uid','=','wishlist.uid')->where('users.uid','=',$id)->simplePaginate(15);
+
     return view('Pages.wishlist', ['data' => $data]);
   }
 
